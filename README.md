@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/18560386/164186889-5160a54d-dbb7-400c-
 
 # Testing the Path Planner
 
-<src="img/parcel_3.gif" width="700"/>
+![Parcel3](img/parcel_3.gif)
 
 The entire workflow is detailed in `notebook/PathPlanner.ipynb`.
 Let's run the planner on a new parcel.
@@ -97,6 +97,7 @@ parcel_group.plot_parcels()
 parcel_group.plot_graph()
 ```
 [<img src="img/parcel_group_plot.png" width="400"/>](img/parcel_group_plot.png)
+<br>
 [<img src="img/graph_plot.png" width="400"/>](img/graph_plot.png)
 
 `parcel_group` is an instance of `ParcelGroup` with the following methods:
