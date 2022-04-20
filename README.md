@@ -88,11 +88,9 @@ parcel_group = parser.get_parcel_group("../test/MobileFence2.kml")
 `parcel_group.plot_parcels()` <br>
 Display all the parcel within the ParcelGroup. It will show Parcel perimeter, along with obstacles and sweep axis.
 <br><br>
----
 
 `parcel_group.rotate_sweep_axis()` <br>
 [Optional] Rotate all objects in such way that the sweep axis is horizontal. This is required to perform a discretization of the figure, that is converting it into a matrix. <br><br>
----
 
 `parcel_group.convert_binary()` <br>
 [Optional] Convert the Parcel and its element into a matrix. This make the bridge between our geometric and coordinates approach to a matrix one.
