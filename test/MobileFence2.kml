@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Mobile Fence 2</name>
+	<gx:CascadingStyle kml:id="__managed_style_23240D4F1D1DF18CA3D3">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.66667</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_10041276E81DF18CA3D3">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>1.77778</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0F6ED83D6F1DF18CA3D3">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_10041276E81DF18CA3D3</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_23240D4F1D1DF18CA3D3</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="09D5A865A51DF18CA3D1">
+		<name>Parcel 1 - Perimeter</name>
+		<LookAt>
+			<longitude>3.698908024647678</longitude>
+			<latitude>46.68688469310109</latitude>
+			<altitude>228.5487985864071</altitude>
+			<heading>354.1825770442003</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>680.9719148152363</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0F6ED83D6F1DF18CA3D3</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						3.699659512020128,46.68790387177892,235.3994357674693 3.699617830541819,46.68783656972121,234.7974651410234 3.699720632152823,46.68770788441991,233.5748962011959 3.699710974815154,46.68762199315211,233.1369449136747 3.699408234077035,46.68747549525838,231.9514259068195 3.699355164244746,46.68707192720301,231.7232087272219 3.699823179564705,46.68653240726125,233.3259090788364 3.699373928849936,46.68649357637437,232.3519888265443 3.699190246239534,46.68636624821833,233.433023161729 3.69902749629881,46.68635474129836,233.5234978544977 3.698929762360608,46.68642108560679,232.8619923698202 3.698920277728728,46.68678785913652,228.7382796895573 3.697687156668905,46.68690140272789,224.9388605229246 3.696476638029058,46.68687744378256,220.6804976711332 3.69601738436462,46.68649622871369,219.4716196362612 3.695851866827604,46.68638187157699,219.0447466753745 3.695682211752556,46.68629253516812,218.5613389704324 3.694060298409045,46.68600921120749,206.6913098937489 3.694413270872203,46.68527002417139,206.1624915055542 3.696510204797023,46.68568697766516,227.8401315322032 3.697297430806883,46.6841486455254,224.8779915677889 3.698321977330943,46.68322493695929,220.6968702458372 3.701628635955816,46.68404161544648,233.0023492966471 3.701103050375638,46.68538692925247,243.2285770237845 3.700363940941682,46.68539507136176,242.40823579021 3.699983305156311,46.68598311316543,238.7274318630229 3.701922646672009,46.68682212003972,241.7668441202208 3.702023716305571,46.68696391495126,241.5794815350969 3.700908029589818,46.68836816979372,244.4420193000543 3.699659512020128,46.68790387177892,235.3994357674693 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="038C5AF21D1DF18D0D8D">
+		<name>Parcel 1 - Obstacle 1</name>
+		<LookAt>
+			<longitude>3.698819461172664</longitude>
+			<latitude>46.68422806824514</latitude>
+			<altitude>233.0048219039967</altitude>
+			<heading>354.1834665005152</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>137.1089200430652</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0F6ED83D6F1DF18CA3D3</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						3.698821998938162,46.68419521729582,232.7624717814294 3.698817145527908,46.68425488480199,233.2025815309891 3.698750103588209,46.68429438076103,233.5359613977708 3.698616731579591,46.68426633072741,233.6070088910126 3.698547157595578,46.68422688446697,233.103359543753 3.698572851953739,46.68416432587353,232.2365694673936 3.698632497662531,46.6841234705002,231.6943913052381 3.698728148100181,46.68410921479753,231.5245231831451 3.698805669507794,46.68414236090098,232.2109051184441 3.698821998938162,46.68419521729582,232.7624717814294 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+	<Placemark id="038F5B3CD31DF18DD2C0">
+		<name>Parcel 1 - Sweep axis</name>
+		<LookAt>
+			<longitude>3.699093939297513</longitude>
+			<latitude>46.68396169085202</latitude>
+			<altitude>229.7269298664433</altitude>
+			<heading>354.1826753506717</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>526.740705488337</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0F6ED83D6F1DF18CA3D3</styleUrl>
+		<LineString>
+			<coordinates>
+				3.698824864569614,46.68336487027166,222.1732544718858 3.698016557480293,46.68352178625527,222.1519463417017 
+			</coordinates>
+		</LineString>
+	</Placemark>
+	<Placemark id="08C974F26D1DF18EE708">
+		<name>Gate Start - 1</name>
+		<LookAt>
+			<longitude>3.698516837905559</longitude>
+			<latitude>46.68326406771142</latitude>
+			<altitude>220.872874426578</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>60.89241501957986</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0F6ED83D6F1DF18CA3D3</styleUrl>
+		<LineString>
+			<coordinates>
+				3.698329883371665,46.68321700277767,220.5762445038438 3.698395794991247,46.68323073001259,220.7167046674668 
+			</coordinates>
+		</LineString>
+	</Placemark>
+</Document>
+</kml>
