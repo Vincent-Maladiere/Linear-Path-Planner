@@ -44,6 +44,10 @@ Add the Sweep axis by drawing a line. It will determine the orientation of our f
 Naming: `Parcel {index} - Sweep axis`. <br>
 Note that you must assign only one sweep axis per field.
 
+### 1.4 Gates
+
+### 1.5 Water tanks
+
 ### 1.4 Export
 Finally, export the file as KML using the Google Earth UI.
 
