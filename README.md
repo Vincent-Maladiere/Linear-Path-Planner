@@ -57,7 +57,7 @@ Water tanks and food tanks are essential to cow well-being. As these installatio
 Note that the planner will take as default starting point the center of the first water tank. For now indicate only one water tank and set the rest as obstacles. <br>
 Naming: `Parcel {parcel index} - WaterTank`
 
-### 1.4 Export
+### 1.6 Export
 Finally, export the file as KML using the Google Earth UI.
 
 ## 2. Setup the environment
@@ -83,7 +83,7 @@ pip install -r requirements.txt
 Follow along if you have opened the `NewPathPlanner`, or use the high level API if you are creating a new notebook.
 The main workflow is:
 
-### 3.1. Parse the KML File
+### 3.1 Parse the KML File
 
 Parse the KML File into a parcel group instance. Set the working directory first in the class instantiation.
 
@@ -128,7 +128,7 @@ Display all the connections between parcels contained in ParcelGroup.
 [Optional] Convert the Parcel and its element into a matrix. This make the bridge between our geometric and coordinates approach to a matrix one.
 
 
-### 3.2. Choose a parcel
+### 3.2 Choose a parcel
 
 Choose a parcel to perform path planning on.
 
@@ -139,7 +139,7 @@ parcel_1.plot()
 [<img src="img/parcel_1_plot.png" width="400"/>](img/parcel_1_plot.png)
 
 
-### 3.3. Run the path planner
+### 3.3 Run the path planner
 
 
 ```python
@@ -149,7 +149,7 @@ fleet.plot()
 fleep.make_gif()
 ```
 
-### 3.3. Edit the parcel object [Optional]
+### 3.4 Edit the parcel object [Optional]
 
 Every item of a parcel is a Geometric element using the shapely library. <br>
 You can easily edit those items to test different configuration.
