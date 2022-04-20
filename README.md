@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/18560386/164186889-5160a54d-dbb7-400c-
 
 # Testing the Path Planner
 
-![Parcel3](img/parcel_3.gif)
+[<img src="img/parcel_3.gif" width="600"/>](img/parcel_3.gif)
 
 The entire workflow is detailed in `notebook/PathPlanner.ipynb`.
 Let's run the planner on a new parcel.
@@ -126,7 +126,7 @@ Choose a parcel to perform path planning on.
 parcel_1 = parcel_group.dict_parcel["parcel 1"]
 parcel_1.plot()
 ```
-![Parcel1Plot](img/parcel_1_plot.png)
+[<img src="img/parcel_1.plot.png" width="400"/>](img/parcel_1_plot.png)
 
 
 ### 3.3. Run the path planner
