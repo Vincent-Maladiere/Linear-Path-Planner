@@ -70,7 +70,7 @@ pip install -r requirements.txt
 Follow along if you have opened the `NewPathPlanner`, or use the high level API if you are creating a new notebook.
 The main workflow is:
 
-### 1. Parse the KML File
+### 3.1. Parse the KML File
 
 Parse the KML File into a parcel group instance. Set the working directory first in the class instantiation.
 
@@ -80,6 +80,8 @@ from src.parsing.google_earth_parser import GoogleEarthParser
 
 parser = GoogleEarthParser(workdir="../test")
 parcel_group = parser.get_parcel_group("../test/MobileFence2.kml")
+parcel_group.plot_parcels()
+parcel_group.plot_graph()
 ```
 
 `parcel_group` is an instance of `ParcelGroup` with the following methods:
@@ -88,16 +90,41 @@ parcel_group = parser.get_parcel_group("../test/MobileFence2.kml")
 `parcel_group.plot_parcels()` <br>
 Display all the parcel within the ParcelGroup. It will show Parcel perimeter, along with obstacles and sweep axis.
 <br><br>
----
+
+`parcel_group.plot_graph()` <br>
+
+<br><br>
 
 `parcel_group.rotate_sweep_axis()` <br>
 [Optional] Rotate all objects in such way that the sweep axis is horizontal. This is required to perform a discretization of the figure, that is converting it into a matrix. <br><br>
----
 
 `parcel_group.convert_binary()` <br>
 [Optional] Convert the Parcel and its element into a matrix. This make the bridge between our geometric and coordinates approach to a matrix one.
 
 
+### 3.2. Run the path planner
+
+Choose a parcel to perform path planning on.
+
+```python
+parcel_1 = parcel_group.dict_parcel["parcel 1"]
+
+fleet = Fleet("../test")
+fleet.forward(parcel_1)
+fleet.plot()
+fleep.make_gif()
+```
+
+### 3.3. Edit the parcel object [Optional]
+
+Every item of a parcel is a Geometric element using the shapely library. <br>
+You can easily edit those items to test different configuration.
+
+For exemple, the starting point (`parcel.start_point`) is defined as the center of the first water tank, but you can choose it to be the center of the sweep axis instead.
 
 
+```python
+parcel_1.start_point = parcel_1.ls_sweep_axis.center
+```
 
+See [shapely documentation](https://shapely.readthedocs.io/en/stable/manual.html) for more operation on shapely objects.
