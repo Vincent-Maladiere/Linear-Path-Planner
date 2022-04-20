@@ -93,15 +93,9 @@ class Sequence:
 
         return self.list_ls_front_interpolated
 
-    def dodge_big_obstacle(self, big_obstacle):
-        # TODO
-        pass
-
-    def dodge_small_obstacle(self, small_obstacle):
+    def dodge_obstacle(self, small_obstacle):
         """
-        Update coords to dodge a small obstacle.
-
-        Important: dodging a small obstacle while connectivity > 1 is not implemented yet.
+        Update coords to dodge an obstacle.
 
         1. Identify the 2 closest fronts (non secant) to the obstacle
             - get the closest front
@@ -134,7 +128,7 @@ class Sequence:
             [p_tangent_low, p_tangent_up],
         )
 
-    def linear_smooth_small_obstacle(
+    def linear_smooth_obstacle(
         self, centroid_obs, list_ls_tangent, list_p_tangent
     ):
         """

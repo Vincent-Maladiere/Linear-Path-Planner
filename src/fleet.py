@@ -48,7 +48,7 @@ class Fleet:
         self.list_ls_front_interpolated = self.sequence.get_interpolated_front()
 
         self.update_coords()
-        self.dodge_small_obstacles()
+        self.dodge_obstacles()
 
     def update_coords(self):
 
@@ -83,30 +83,30 @@ class Fleet:
                 points = coords_core.get_p_front(ls_front, ls_front.centroid)
                 self.coords_local = coords_core.add_coords(self.coords_local, points)
 
-    def dodge_small_obstacles(self):
+    def dodge_obstacles(self):
 
         logger.info(
-            f" # [Fleet] Got {len(self.parcel.small_obstacles)} small obstacle(s)"
+            f" # [Fleet] Got {len(self.parcel.obstacles)} obstacle(s)"
         )
-        small_obstacles = sorted(self.parcel.small_obstacles, key=lambda x: x.distance(self.start_point))
-        for small_obstacle in small_obstacles:
+        obstacles = sorted(self.parcel.obstacles, key=lambda x: x.distance(self.start_point))
+        for obstacle in obstacles:
             (
                 list_obstacle_coords,
                 list_idx_tangent,
                 list_ls_tangent,
                 list_p_tangent,
-            ) = self.sequence.dodge_small_obstacle(small_obstacle)
-            self.update_coords_small_obstacle(
-                small_obstacle, list_obstacle_coords, list_idx_tangent, list_p_tangent
+            ) = self.sequence.dodge_obstacle(obstacle)
+            self.update_coords_obstacle(
+                obstacle, list_obstacle_coords, list_idx_tangent, list_p_tangent
             )
-            list_ls_centroid_smooth = self.sequence.linear_smooth_small_obstacle(
-                small_obstacle.centroid, list_ls_tangent, list_p_tangent
+            list_ls_centroid_smooth = self.sequence.linear_smooth_obstacle(
+                obstacle.centroid, list_ls_tangent, list_p_tangent
             )
             if list_ls_centroid_smooth is None:
                 continue
             self.update_coords_smooth(list_ls_centroid_smooth)
 
-    def update_coords_small_obstacle(
+    def update_coords_obstacle(
         self, small_obstacle, list_coords_obstacle, list_idx_front, list_p_tangent
     ):
         """

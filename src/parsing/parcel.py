@@ -60,10 +60,8 @@ class ParcelGroup:
         self.dict_parcel = dict_parcel
         self.graph_parcel = graph_parcel
 
-    def split_small_obstacles(self):
+    def clean_obstacles(self):
         """
-        Separate small obstacles to regular obstacles.
-
         1. Merging obstacles and watertanks altogether
         2. Snapping (projecting obstacle to the parcel perimeter)
         """
@@ -71,7 +69,6 @@ class ParcelGroup:
             parcel.merge_obstacles()
             if SNAP_ACTIVATE:
                 parcel.snap_obstacles()
-            parcel.split_small_obstacles()
 
     def rotate_sweep_axis(self):
         for parcel in self.dict_parcel.values():
@@ -114,6 +111,7 @@ class ParcelGroup:
         nx.draw_networkx_labels(
             self.graph_parcel, pos, font_size=14, bbox=label_options
         )
+        ax.set_facecolor("white")
         plt.show()
         ax.remove()
 
@@ -140,7 +138,6 @@ class Parcel:
         self.lr_local_perimeter = None
         self.gates = list()
         self.obstacles = list()
-        self.small_obstacles = list()
         self.water_tanks = list()
         self.ls_sweep_axis = None
         self.point_ref = None
@@ -292,6 +289,8 @@ class Parcel:
         
     def split_small_obstacles(self):
         """
+        @Deprecated
+
         Split each obstacles between 'regular' obstacles and 'small' ones.
         `small_obstacle` will be ignored during path computation, but
         considered by the robots upon executing movements.
@@ -327,9 +326,6 @@ class Parcel:
         )
         self.obstacles_rot = [
             rotate(obs, angle, origin=p_centroid) for obs in self.obstacles
-        ]
-        self.small_obstacles_rot = [
-            rotate(obs, angle, origin=p_centroid) for obs in self.small_obstacles
         ]
         self.water_tanks_rot = [
             rotate(wt, angle, origin=p_centroid) for wt in self.water_tanks
@@ -460,7 +456,6 @@ class Parcel:
                     "Parcel needs to be rotated first. Use _rotate_sweep_axis."
                 )
             obstacles = self.obstacles_rot
-            small_obstacles = self.small_obstacles_rot
             water_tanks = self.water_tanks_rot
             gates = self.gates_rot
             ls_sweep_axis = self.ls_sweep_axis_rot
@@ -468,7 +463,6 @@ class Parcel:
             lr_local_perimeter_offset = self.lr_local_perimeter_offset_rot
         elif step == "original":
             obstacles = self.obstacles
-            small_obstacles = self.small_obstacles
             water_tanks = self.water_tanks
             gates = self.gates
             ls_sweep_axis = self.ls_sweep_axis
@@ -482,10 +476,7 @@ class Parcel:
 
         for lr_obstacle in obstacles:
             # plot_coords(ax, lr_obstacle, color=COLOR_OBSTACLE)
-            plot_poly(ax, lr_obstacle, color=COLOR_OBSTACLE)
-
-        for lr_small_obstacle in small_obstacles:
-            plot_poly(ax, lr_small_obstacle, color=COLOR_SMALL_OBSTACLE)
+            plot_poly(ax, lr_obstacle, color=COLOR_SMALL_OBSTACLE)
 
         for lr_water_tank in water_tanks:
             # plot_coords(ax, lr_water_tank, color=COLOR_WATER_TANK)

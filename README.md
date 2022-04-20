@@ -20,14 +20,15 @@ https://user-images.githubusercontent.com/18560386/164186889-5160a54d-dbb7-400c-
 The entire workflow is detailed in `notebook/PathPlanner.ipynb`.
 Let's run the planner on a new parcel.
 
-## 1. Creating the KLM File
+## 1. Creating the KML File
 
 First, head to Google Earth and create a mapping respecting the following requirements:
 ![GoogleEarthDemo](img/google-earth-demo.png)
 
 ### 1.1 Parcel
-Create closed Polygons and name them: `Parcel {index} - Perimeter`.
+Create closed Polygons representing the fields of interest.
 Naming is important because it will be use later by the GoogleEarthParser. Exemple:
+Naming: `Parcel {index} - Perimeter`.
 - Parcel 1 - Perimeter
 - Parcel 2 - Perimeter
 - Parcel 3 - Perimeter
@@ -35,7 +36,7 @@ Naming is important because it will be use later by the GoogleEarthParser. Exemp
 
 ### 1.2 Obstacles
 Add the obstacles within your Polygon by drawing (you guess it) another set of Polygons
-They also must be named accordingly: `Parcel {index 1} - Obstacle {index 2}`. Exemple:
+Naming: `Parcel {index 1} - Obstacle {index 2}`. Exemple:
 - Parcel 1 - Obstacle 1
 - Parcel 1 - Obstacle 2
 
@@ -45,8 +46,16 @@ Naming: `Parcel {index} - Sweep axis`. <br>
 Note that you must assign only one sweep axis per field.
 
 ### 1.4 Gates
+Joint parcels can be separated by gates, allowing communication between the two spaces. <br>
+You can add gates as small lines. <br>
+Naming: `Gate {parcel index 1}-{parcel index 2}`
+You can also specify the entrance to the group of parcel by choosing a starting gate.
+Naming: `Gate Start-{parcel index}`
 
 ### 1.5 Water tanks
+Water tanks and food tanks are essential to cow well-being. As these installations can be of great sizes, we need to take them into account like obstacles. <br>
+Note that the planner will take as default starting point the center of the first water tank. For now indicate only one water tank and set the rest as obstacles.
+Naming: `Parcel {parcel index} - WaterTank`
 
 ### 1.4 Export
 Finally, export the file as KML using the Google Earth UI.
@@ -82,11 +91,13 @@ Parse the KML File into a parcel group instance. Set the working directory first
 import sys; sys.path.append("..") # house keeping to make our imports work
 from src.parsing.google_earth_parser import GoogleEarthParser
 
-parser = GoogleEarthParser(workdir="../test")
-parcel_group = parser.get_parcel_group("../test/MobileFence2.kml")
+parser = GoogleEarthParser(workdir="../prod")
+parcel_group = parser.get_parcel_group("../prod/MobileFence.kml")
 parcel_group.plot_parcels()
 parcel_group.plot_graph()
 ```
+![ParcelGroupPlot](img/parcel_group_plot.png)
+![GraphPlot](img/graph_plot.png)
 
 `parcel_group` is an instance of `ParcelGroup` with the following methods:
 <br>
@@ -96,7 +107,7 @@ Display all the parcel within the ParcelGroup. It will show Parcel perimeter, al
 <br><br>
 
 `parcel_group.plot_graph()` <br>
-
+Display all the connections between parcels contained in ParcelGroup.
 <br><br>
 
 `parcel_group.rotate_sweep_axis()` <br>
@@ -106,14 +117,22 @@ Display all the parcel within the ParcelGroup. It will show Parcel perimeter, al
 [Optional] Convert the Parcel and its element into a matrix. This make the bridge between our geometric and coordinates approach to a matrix one.
 
 
-### 3.2. Run the path planner
+### 3.2. Choose a parcel
 
 Choose a parcel to perform path planning on.
 
 ```python
 parcel_1 = parcel_group.dict_parcel["parcel 1"]
+parcel_1.plot()
+```
+![Parcel1Plot](img/parcel_1_plot.png)
 
-fleet = Fleet("../test")
+
+### 3.3. Run the path planner
+
+
+```python
+fleet = Fleet("../prod")
 fleet.forward(parcel_1)
 fleet.plot()
 fleep.make_gif()
@@ -128,7 +147,9 @@ For exemple, the starting point (`parcel.start_point`) is defined as the center 
 
 
 ```python
-parcel_1.start_point = parcel_1.ls_sweep_axis.center
+parcel_1.water_tanks = [parcel_1.ls_sweep_axis.centroid.buffer(3)]
 ```
+
+Here, water_tanks need to be a list of Polygon, so we take the centroid of our sweep axis, and make it a disk of radius 3 unit (hence, a Polygon).
 
 See [shapely documentation](https://shapely.readthedocs.io/en/stable/manual.html) for more operation on shapely objects.

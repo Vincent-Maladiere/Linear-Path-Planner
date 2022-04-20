@@ -22,7 +22,7 @@ class GoogleEarthParser:
         Create the parcel group object.
 
         1. Extract item from the parsed KML file, create parcel and add items to them.
-        2. Create the ParcelGroup object, which represent all parcel data, and remove small obstacles.
+        2. Create the ParcelGroup object, which represent all parcel data, and handle obstacles.
         3. Save each parcels into the workdir.
         """
 
