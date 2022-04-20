@@ -26,8 +26,8 @@ First, head to Google Earth and create a mapping respecting the following requir
 ![GoogleEarthDemo](img/google-earth-demo.png)
 
 ### 1.1 Parcel
-Create closed Polygons representing the fields of interest.
-Naming is important because it will be use later by the GoogleEarthParser. Exemple:
+Create closed Polygons representing the fields of interest. 
+Naming is important because it will be used later by the GoogleEarthParser. <br>
 Naming: `Parcel {index} - Perimeter`.
 - Parcel 1 - Perimeter
 - Parcel 2 - Perimeter
@@ -35,7 +35,7 @@ Naming: `Parcel {index} - Perimeter`.
 - Parcel 4 - Perimeter
 
 ### 1.2 Obstacles
-Add the obstacles within your Polygon by drawing (you guess it) another set of Polygons
+Add the obstacles within your Polygon by drawing (you guess it) another set of Polygons. <br>
 Naming: `Parcel {index 1} - Obstacle {index 2}`. Exemple:
 - Parcel 1 - Obstacle 1
 - Parcel 1 - Obstacle 2
@@ -49,12 +49,12 @@ Note that you must assign only one sweep axis per field.
 Joint parcels can be separated by gates, allowing communication between the two spaces. <br>
 You can add gates as small lines. <br>
 Naming: `Gate {parcel index 1}-{parcel index 2}`
-You can also specify the entrance to the group of parcel by choosing a starting gate.
+You can also specify the entrance to the group of parcel by choosing a starting gate. <br>
 Naming: `Gate Start-{parcel index}`
 
 ### 1.5 Water tanks
 Water tanks and food tanks are essential to cow well-being. As these installations can be of great sizes, we need to take them into account like obstacles. <br>
-Note that the planner will take as default starting point the center of the first water tank. For now indicate only one water tank and set the rest as obstacles.
+Note that the planner will take as default starting point the center of the first water tank. For now indicate only one water tank and set the rest as obstacles. <br>
 Naming: `Parcel {parcel index} - WaterTank`
 
 ### 1.4 Export
@@ -96,7 +96,7 @@ parcel_group = parser.get_parcel_group("../prod/MobileFence.kml")
 parcel_group.plot_parcels()
 parcel_group.plot_graph()
 ```
-![ParcelGroupPlot](img/parcel_group_plot.png)
+[<img src="img/parcel_group_plot.png" width="250"/>](img/parcel_group_plot.png)
 ![GraphPlot](img/graph_plot.png)
 
 `parcel_group` is an instance of `ParcelGroup` with the following methods:
