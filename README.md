@@ -15,7 +15,7 @@ https://user-images.githubusercontent.com/18560386/164186889-5160a54d-dbb7-400c-
 
 # Testing the Path Planner
 
-[<src="img/parcel_3.gif" width="700"/>](img/parcel_3.gif)
+<src="img/parcel_3.gif" width="700"/>
 
 The entire workflow is detailed in `notebook/PathPlanner.ipynb`.
 Let's run the planner on a new parcel.
