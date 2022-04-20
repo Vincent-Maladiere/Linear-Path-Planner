@@ -62,7 +62,7 @@ Finally, export the file as KML using the Google Earth UI.
 
 ## 2. Setup the environment
 
-- Requirements: python > 3.6
+- Requirements: python >= 3.6
 
 1. The next step is to install the Linear Path Planner locally and create the python environment.
 Clone the repo, and then `cd` into it.
@@ -100,6 +100,16 @@ parcel_group.plot_graph()
 <br>
 [<img src="img/graph_plot.png" width="400"/>](img/graph_plot.png)
 
+Legend:
+- Grey: parcel perimeter
+- Purple: obstacles
+- Yellow: gates
+- Blue lines: sweep axis
+- Blue area: water tanks
+
+The graph represents the connections between parcels, indicated by the gates.
+
+
 `parcel_group` is an instance of `ParcelGroup` with the following methods:
 <br>
 
@@ -126,7 +136,7 @@ Choose a parcel to perform path planning on.
 parcel_1 = parcel_group.dict_parcel["parcel 1"]
 parcel_1.plot()
 ```
-[<img src="img/parcel_1.plot.png" width="400"/>](img/parcel_1_plot.png)
+[<img src="img/parcel_1_plot.png" width="400"/>](img/parcel_1_plot.png)
 
 
 ### 3.3. Run the path planner
